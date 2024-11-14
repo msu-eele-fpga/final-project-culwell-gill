@@ -7,6 +7,7 @@ Two buttons will control a running LED on the 8 FPGA LEDs. The two buttons will 
 A dip switch will control an LED on the FPGA. The first four switches on the DIP switch will correspond to a binary number which will be the amount of times that the LED will blink when a button is pressed. The software will act as a middle man reading the inputs of the switches and the press of the button. The Software will also control the LED output.  
 
 ## Extra credit
+
 A button will invert the LED array in proposal 1.
 
 A button increases the blinking speed of the LED in proposal 2 each time it is pressed. 
