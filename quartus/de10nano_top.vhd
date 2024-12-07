@@ -141,14 +141,14 @@ entity de10nano_top is
     --  in the down position
     --  (towards the edge of the board)
     ----------------------------------------
-    sw : in    std_ulogic_vector(3 downto 0);
+    sw : in    std_logic_vector(3 downto 0);
 
     ----------------------------------------
     --  LED outputs
     --  See DE10 Nano User Manual page 26
     --  Setting LED to 1 will turn it on
     ----------------------------------------
-    led : out   std_ulogic_vector(7 downto 0);
+    led : out   std_logic_vector(7 downto 0);
 
     ----------------------------------------
     --  GPIO expansion headers (40-pin)
@@ -157,8 +157,8 @@ entity de10nano_top is
     --  Pin 29 = 3.3 supply (1.5A max)
     --  Pins 12, 30 = GND
     ----------------------------------------
-    gpio_0 : inout std_ulogic_vector(35 downto 0);
-    gpio_1 : inout std_ulogic_vector(35 downto 0);
+    gpio_0 : inout std_logic_vector(35 downto 0);
+    gpio_1 : inout std_logic_vector(35 downto 0);
 
     ----------------------------------------
     --  Arudino headers
@@ -251,7 +251,16 @@ architecture de10nano_arch of de10nano_top is
       adc_sclk                        : out   std_logic;
       adc_cs_n                        : out   std_logic;
       adc_dout                        : in    std_logic;
-      adc_din                         : out   std_logic
+      adc_din                         : out   std_logic;
+		--Final core
+		rgb_output_rgb_pwm_signals      : out   std_logic_vector(2 downto 0);
+		--Proposal 1
+		prop_one_led_output             : out   std_logic_vector(6 downto 0);
+		prop_one_buttons                : in    std_logic_vector(1 downto 0);
+		--Proposal 2
+		prop_two_switches               : in    std_logic_vector(3 downto 0);
+		prop_two_led                    : out   std_logic;
+		prop_two_button                 : in    std_logic
     );
   end component soc_system;
 
@@ -351,7 +360,19 @@ begin
 
       -- Fabric clock and reset
       clk_clk       => fpga_clk1_50,
-      reset_reset_n => rst_n
+      reset_reset_n => rst_n,
+		
+		-- RGB Controller
+		rgb_output_rgb_pwm_signals => gpio_0(2 downto 0),
+		
+		-- Proposal 1
+		prop_one_led_output => led(6 downto 0),
+		prop_one_buttons => gpio_0(4 downto 3),
+		
+		-- Proposal 2
+		prop_two_switches => sw, --gpio_0(8 downto 5),
+		prop_two_led => led(7),
+		prop_two_button => gpio_0(9)
     );
 
 end architecture de10nano_arch;
