@@ -1,0 +1,19 @@
+#include "socfpga_cyclone5_de10nano.dtsi"
+/{
+	rgb_controller: rgb_controller@ff200020 {
+		compatible = "culwell,rgb_controller";
+		reg = <0xff200020 16>;
+	};
+	de10nano_adc: adc@ff200000 {
+		compatible = "adsd,de10nano_adc";
+		reg = <0xff200000 32>;
+	};
+	prop_one_controller: prop_one_controller@ff200030 {
+		compatible = "culwell,prop_one_controller";
+		reg = <0xff200030 16>;
+	};
+	prop_two_controller: prop_two_controller@ff200040 {
+		compatible = "culwell,prop_two_controller";
+		reg = <0xff200040 16>;
+	};
+};
