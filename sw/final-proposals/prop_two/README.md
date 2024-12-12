@@ -7,6 +7,14 @@ The prop_two.c file is a C file that provides the core functionality of the prop
 ## Function 
 prop_two.c reads and writes to the prop_two registers via the kernel, driver, and device tree structures. Using this data, the file blinks an LED according to the value set by the switches on the DE-10 Nano (4 bit nibble).
 
+## Building, Installing, and Running 
+- The file needs to be cross-compiled in linux for the arm processors using "/usr/bin/arm-linux -gnueabihf -gcc -o prop_two prop_two.c"
+- Copy the program to the tftp server at "/srv/nfs/de10nano/ubuntu-rootfs/home/soc"
+- Using Putty, log into the root folder of the FPGA and run the program with "./prop_two" 
+- The does not use user inputs and will run automatically
+
+
+
 ## File Open
 
 ```c

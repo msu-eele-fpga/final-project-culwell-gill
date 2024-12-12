@@ -16,6 +16,13 @@ rgb_controller: rgb_controller@ff200020 {
 		reg = <0xff200020 16>;
 	};
 ```
+## Driver installation
+- Put the Device tree node into the dts file for your FPGA
+- Cross compile the driver to the ARM architecture by using "make ARCH=arm" 
+- Copy the .ko file into "/srv/nfs/de10nano/ubuntu-rootfs/home/soc"
+- Insert the driver into the kernel by using "insmod rgb_controller.ko"
+
+
 
 ## Dev Struct
 
