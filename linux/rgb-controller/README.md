@@ -7,6 +7,16 @@ rgb_controller.c is the device driver for the rgb_controller HDL.
 ## Function 
 This file is the intermediary connection between the Linux Kernel and FPGA HDL.
 
+## Device tree node
+
+Use the following device tree node:
+```devicetree
+rgb_controller: rgb_controller@ff200020 {
+		compatible = "culwell,rgb_controller";
+		reg = <0xff200020 16>;
+	};
+```
+
 ## Dev Struct
 
 ```c

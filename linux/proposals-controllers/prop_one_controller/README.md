@@ -6,6 +6,16 @@ prop_one_controller.c is the device driver for the prop_one HDL.
 
 ## Function 
 This file serves as an intermediary connection between the linux Kernel and the device hardware.
+
+## Device tree node
+
+Use the following device tree node:
+```devicetree
+prop_one_controller: prop_one_controller@ff200030 {
+		compatible = "culwell,prop_one_controller";
+		reg = <0xff200030 16>;
+```
+
 ## Dev Struct
 
 ```c

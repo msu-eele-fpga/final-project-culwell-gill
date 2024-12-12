@@ -6,6 +6,18 @@ prop_two_controller.c is the device driver for the prop_two HDL.
 
 ## Function 
 This file serves as an intermediary connection between the linux Kernel and the device hardware.
+
+## Device tree node
+
+Use the following device tree node:
+
+```devicetree
+prop_two_controller: prop_two_controller@ff200040 {
+		compatible = "culwell,prop_two_controller";
+		reg = <0xff200040 16>;
+	};
+```
+
 ## Dev Struct
 
 ```c
