@@ -7,6 +7,12 @@ The prop_one.c file is a C file that provides the core functionality of the prop
 ## Function 
 prop_one.c reads and writes to the prop_one registers via the kernel, driver, and device tree structures. Using this data, the file makes a running LED that changes directions depending on which button is pressed.
 
+## Building, Installing, and Running 
+- The file needs to be cross-compiled in linux for the arm processors using "/usr/bin/arm-linux -gnueabihf -gcc -o prop_one prop_one.c"
+- Copy the program to the tftp server at "/srv/nfs/de10nano/ubuntu-rootfs/home/soc"
+- Using Putty, log into the root folder of the FPGA and run the program with "./prop_one" after installing the device driver 
+- The does not use user inputs and will run automatically
+
 ## File Open
 
 ```c
